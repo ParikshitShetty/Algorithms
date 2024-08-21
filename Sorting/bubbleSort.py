@@ -1,5 +1,8 @@
-def bubbleSort(arr:list):
-    size = len(arr)
+original = [64, 34, 25, 12, 22, 11, 90, -1]
+
+def bubbleSort():
+    size = len(original)
+    arr = original[:]
     
     for i in range(size):
         swapped = False
@@ -10,8 +13,9 @@ def bubbleSort(arr:list):
                 swapped = True
         if swapped == False:
             break
-        
-arr = [64, 34, 25, 12, 22, 11, 90, -1]
+    return { "original":original, "arr":arr }
 
-bubbleSort(arr)
-print("Sorted array:",arr)
+if __name__ == "__main__":
+    # This will only run if this script is executed directly
+    result = bubbleSort()
+    print("Bubble Sort Result:", result)
