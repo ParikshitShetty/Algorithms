@@ -1,7 +1,8 @@
+# Import Sorting functions
 from Sorting.bubbleSort import bubbleSort
 from Sorting.selectionSort import selectionSort
 
-def print_menu(options:list):
+def print_menu(options:dict):
     print("\nInteractive Terminal")
     
     for key,value in options.items():
@@ -22,19 +23,23 @@ def interactive_terminal(options:dict):
         else:
             print("Invalid choice. Please try again.")
 
-if __name__ == "__main__":
-    options = {
-        "1": {
-            "description": "Bubble Sort",
-            "action":bubbleSort
-        },
-        "2": {
-            "description": "Selection Sort",
-            "action": selectionSort
-        },
-        "3": {
-            "description": "Exit",
-            "action": exit
+if __name__ == "__main__":    
+    options = {}
+    
+    # Get array with functions which has `sort` string in them  
+    globals_copy = [(name, obj) for name, obj in globals().items() if callable(obj) and name.endswith("Sort")]
+    
+    # Populate options dictionary from the copy
+    for i, (name, func) in enumerate(globals_copy, start=1):
+        options[str(i)] = {
+            "description": name.replace("Sort", " Sort").capitalize(),
+            "action": func
         }
+
+    # Add the exit option
+    options[str(len(options) + 1)] = {
+        "description": "Exit",
+        "action": exit
     }
+        
     interactive_terminal(options=options)
