@@ -1,6 +1,6 @@
 original = [64, 34, 25, 12, 22, 11, 90, -1]
 
-def bubbleSort():
+def bubbleSort() -> dict:
     size = len(original)
     arr = original[:]
     

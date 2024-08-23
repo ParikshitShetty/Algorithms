@@ -1,6 +1,6 @@
 original = [-2, 45, 0, 11, -9,88,-97,-202,747]
 
-def selectionSort():
+def selectionSort() -> dict:
     size = len(original)
     arr = original[:]
     for i in range(size):

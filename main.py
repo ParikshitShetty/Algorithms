@@ -1,6 +1,7 @@
 # Import Sorting functions
 from Sorting.bubbleSort import bubbleSort
 from Sorting.selectionSort import selectionSort
+from Sorting.insertionSort import insertionSort
 
 def print_menu(options:dict):
     print("\nInteractive Terminal")
